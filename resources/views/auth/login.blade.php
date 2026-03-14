@@ -13,7 +13,7 @@
                 <x-form.label for="email">{{ __('Email address') }}</x-form.label>
 
                 <x-form.text-input id="email" type="email" name="email" :value="old('email')" :data-error="$errors->has('email')"
-                    required autofocus autocomplete="email" placeholder="email@example.com" class="mt-2" />
+                    required autofocus autocomplete="email" placeholder="email@example.com" class="mt-2" tabindex="1" />
 
                 <x-form.error for="email" />
             </div>
@@ -31,15 +31,10 @@
                 </div>
 
                 <x-form.password-input id="password" name="password" required autocomplete="current-password"
-                    :placeholder="__('Password')" class="mt-2" />
+                    :placeholder="__('Password')" class="mt-2" tabindex="2" />
             </div>
 
-            <!-- Remember Me -->
-            @hotwirenative
-                <input type="hidden" name="remember_me" value="1" />
-            @else
-                <x-form.checkbox id="remember_me" :label="__('Remember me')" name="remember" :checked="old('remember')" />
-            @endhotwirenative
+            <x-form.checkbox id="remember_me" :label="__('Remember me')" name="remember" :checked="old('remember')" tabindex="3" />
 
             <div class="flex items-center justify-end">
                 <x-form.button.primary type="submit" class="w-full">{{ __('Log in') }}</x-form.button.primary>
