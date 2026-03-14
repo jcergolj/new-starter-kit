@@ -80,4 +80,18 @@ final class RegistrationSingleUserModeTest extends TestCase
             'password_confirmation' => 'password',
         ])->assertRedirect(route('login'));
     }
+
+    #[Test]
+    public function email_verified_at_is_null_when_allow_without_email_verification_is_false(): void
+    {
+        $this->post(route('register'), [
+            'name' => 'Test User',
+            'username' => 'testuser',
+            'email' => 'test@example.com',
+            'password' => 'password',
+            'password_confirmation' => 'password',
+        ])->assertValid();
+
+        $this->assertNull(User::first()->email_verified_at);
+    }
 }

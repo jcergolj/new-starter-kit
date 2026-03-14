@@ -42,6 +42,7 @@ class CreateNewUser implements CreatesNewUsers
             'username' => $input['username'],
             'email' => $input['email'],
             'password' => $input['password'],
+            'email_verified_at' => config('app.allow_without_email_verification') ? now() : null,
         ]);
     }
 }

@@ -70,6 +70,8 @@ return [
 
     'single_user_mode' => env('SINGLE_USER_MODE', false),
 
+    'allow_without_email_verification' => env('ALLOW_WITHOUT_EMAIL_VERIFICATION', false),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

@@ -8,10 +8,10 @@ use App\Http\Controllers\Settings\LanguageController;
 use App\Http\Requests\SaveLanguageRequest;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Jcergolj\FormRequestAssertions\TestableFormRequest;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
-use Jcergolj\FormRequestAssertions\TestableFormRequest;
 
 #[CoversClass(LanguageController::class)]
 final class LanguageControllerTest extends TestCase
@@ -60,7 +60,7 @@ final class LanguageControllerTest extends TestCase
     }
 
     #[Test]
-    public function controller_has_form_request()
+    public function controller_has_form_request(): void
     {
         $this->put(route('settings.language.update'));
 

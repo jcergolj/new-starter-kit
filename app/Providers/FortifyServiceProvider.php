@@ -39,12 +39,16 @@ class FortifyServiceProvider extends ServiceProvider
 
             public function toResponse($request)
             {
+                $postRegisterUrl = config('app.allow_without_email_verification')
+                    ? '/dashboard'
+                    : '/login?status=verify-email';
+
                 if (config('app.single_user_mode')) {
-                    return redirect()->to('/login?status=verify-email');
+                    return redirect()->to($postRegisterUrl);
                 }
 
                 $username = $request->input('username');
-                $loginUrl = $this->urlBuilder->build($username, '/login?status=verify-email');
+                $loginUrl = $this->urlBuilder->build($username, $postRegisterUrl);
 
                 return redirect($loginUrl);
             }
