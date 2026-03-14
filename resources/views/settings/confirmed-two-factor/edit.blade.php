@@ -1,5 +1,5 @@
 <x-layouts.app :title="__('Enable Two-Factor Authentication')">
-    <section class="w-full lg:max-w-lg mx-auto">
+    <section class="w-full lg:max-w-xl mx-auto">
         @unlesshotwirenative
         <x-back-link :href="route('settings.two-factor.edit')">{{ __('Two-factor authentication') }}</x-back-link>
         <x-text.heading size="xl">{{ __('Enable Two-Factor Authentication') }}</x-text.heading>

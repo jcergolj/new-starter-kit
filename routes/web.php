@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AcceptInvitationController;
+use App\Http\Controllers\InvitationController;
 use App\Http\Controllers\Settings\ConfirmedTwoFactorController;
 use App\Http\Controllers\Settings\LanguageController;
 use App\Http\Controllers\Settings\PasswordController;
@@ -11,6 +13,22 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 
 Route::view('/', 'welcome')->name('home');
+
+// Public — invite acceptance (no auth)
+Route::get('invite/{token}', [AcceptInvitationController::class, 'show'])
+    ->name('invitations.accept');
+Route::post('invite/{token}', [AcceptInvitationController::class, 'store'])
+    ->name('accept.invitations.store');
+
+// Admin — send and revoke invitations
+Route::middleware(['auth', 'verified', 'admin'])->group(function () {
+    Route::get('invitations/create', [InvitationController::class, 'create'])
+        ->name('invitations.create');
+    Route::post('invitations', [InvitationController::class, 'store'])
+        ->name('invitations.store');
+    Route::delete('invitations/{invitation}', [InvitationController::class, 'destroy'])
+        ->name('invitations.destroy');
+});
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

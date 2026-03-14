@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Http\Middleware;
 
 use App\Models\User;
@@ -9,12 +7,14 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class PreventRegistrationWhenUserExists
+class EnsureUserIsAdmin
 {
     public function handle(Request $request, Closure $next): Response
     {
-        if (config('app.single_db_per_app') && $request->routeIs('register', 'register.store') && User::exists()) {
-            return to_route('login');
+        $user = $request->user();
+
+        if (! $user || ! User::orderBy('id')->first()->is($user)) {
+            abort(Response::HTTP_FORBIDDEN);
         }
 
         return $next($request);

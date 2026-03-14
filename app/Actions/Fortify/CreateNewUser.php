@@ -31,7 +31,7 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
         ])->validate();
 
-        if (! config('app.single_user_mode')) {
+        if (! config('app.single_db_per_app')) {
             $this->tenantDb->createTenantDatabase($input['username']);
 
             $this->tenantDb->connectToTenant($input['username']);

@@ -14,7 +14,10 @@
       "Bash(mkdir -p /home/jcergolj/work/projects/new-starter-kit/.ai/guidelines && cd /home/jcergolj/work/projects/new-starter-kit/.ai/guidelines && for file in foundation.md php.md testing.md laravel-core.md models.md controllers.md database.md jobs.md formatting.md laravel-boost.md; do ln -s ~/work/ai-framework/agent_docs/$file $file; done && ls -la)",
       "Bash(find /home/jcergolj/work/projects/new-starter-kit -path vendor -prune -o -type f -name \"*.php\" -exec grep -l \"msg_success\\\\|msg_error\\\\|to_intended_route\" {} \\\\; 2>/dev/null | head -20)",
       "Bash(find /home/jcergolj/work/projects/new-starter-kit/resources/views -name \"*auth*\" -o -name \"*layout*\" | grep -E \"\\\\.blade\\\\.php$\" | head -20)",
-      "Bash(grep -r \"msg_success\" /home/jcergolj/work/projects/new-starter-kit/app --include=\"*.php\" 2>/dev/null | head -5)"
+      "Bash(grep -r \"msg_success\" /home/jcergolj/work/projects/new-starter-kit/app --include=\"*.php\" 2>/dev/null | head -5)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(git stash:*)"
     ]
   }
 }

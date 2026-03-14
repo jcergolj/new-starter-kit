@@ -1,5 +1,5 @@
 <x-layouts.app :title="__('Profile & Settings')">
-    <section class="w-full max-w-md mx-auto space-y-6">
+    <section class="w-full lg:max-w-xl mx-auto space-y-6">
         @unlesshotwirenative
             <x-text.heading size="xl">{{ __('Profile & Settings') }}</x-text.heading>
         @endunlesshotwirenative

@@ -18,7 +18,7 @@ final class CreateAdminCommandTest extends TestCase
     {
         parent::setUp();
 
-        config()->set('app.single_user_mode', true);
+        config()->set('app.single_db_per_app', true);
     }
 
     #[Test]
@@ -39,9 +39,9 @@ final class CreateAdminCommandTest extends TestCase
     }
 
     #[Test]
-    public function it_fails_when_not_in_single_user_mode(): void
+    public function it_fails_when_not_in_single_db_per_app(): void
     {
-        config()->set('app.single_user_mode', false);
+        config()->set('app.single_db_per_app', false);
 
         $this->artisan('app:create-admin')
             ->assertFailed();

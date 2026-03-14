@@ -105,5 +105,20 @@
     "With two-factor authentication enabled, you will be prompted for a secure, random pin during login, which you can retrieve from the TOTP-supported application on your phone.": "With two-factor authentication enabled, you will be prompted for a secure, random pin during login, which you can retrieve from the TOTP-supported application on your phone.",
     "Your email address is unverified.": "Your email address is unverified.",
     "Your profile has been updated.": "Your profile has been updated.",
-    "Your URL will be:": "Your URL will be:"
+    "Your URL will be:": "Your URL will be:",
+    "Accept invitation": "Accept invitation",
+    "Complete your registration below.": "Complete your registration below.",
+    "Complete Registration": "Complete Registration",
+    "Email": "Email",
+    "Invitation accepted. You can now log in.": "Invitation accepted. You can now log in.",
+    "Invitation revoked.": "Invitation revoked.",
+    "Invitation sent successfully.": "Invitation sent successfully.",
+    "Invitations": "Invitations",
+    "Pending invitations": "Pending invitations",
+    "Revoke": "Revoke",
+    "Send invitation": "Send invitation",
+    "This invitation expires on :date.": "This invitation expires on :date.",
+    "This invitation is no longer valid.": "This invitation is no longer valid.",
+    "You have been invited": "You have been invited",
+    "You have been invited to join. Click the link below to complete your registration:": "You have been invited to join. Click the link below to complete your registration:"
 }

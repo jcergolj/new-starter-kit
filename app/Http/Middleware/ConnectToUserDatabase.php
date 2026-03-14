@@ -20,7 +20,7 @@ final readonly class ConnectToUserDatabase
 
     public function handle(Request $request, Closure $next): Response
     {
-        if (config('app.single_user_mode')) {
+        if (config('app.single_db_per_app')) {
             return $next($request);
         }
 

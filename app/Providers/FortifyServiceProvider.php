@@ -43,7 +43,7 @@ class FortifyServiceProvider extends ServiceProvider
                     ? '/dashboard'
                     : '/login?status=verify-email';
 
-                if (config('app.single_user_mode')) {
+                if (config('app.single_db_per_app')) {
                     return redirect()->to($postRegisterUrl);
                 }
 

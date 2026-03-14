@@ -25,7 +25,7 @@
                 <x-form.text-input id="username" name="username" :value="old('username')" :data-error="$errors->has('username')" required
                     autocomplete="username" :placeholder="__('username')" class="mt-2" tabindex="2" />
 
-                @unless(config('app.single_user_mode'))
+                @unless(config('app.single_db_per_app'))
                 <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">
                     {{ __('Your URL will be:') }} <strong data-subdomain-preview-target="preview">username</strong>.{{ parse_url(config('app.url'), PHP_URL_HOST) }}
                 </p>

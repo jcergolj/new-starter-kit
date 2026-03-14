@@ -25,6 +25,13 @@
                             <x-navbar.nav-item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')">
                                 {{ __('Dashboard') }}
                             </x-navbar.nav-item>
+                            @auth
+                                @if(auth()->user()->isAdmin())
+                                    <x-navbar.nav-item icon="envelope" :href="route('invitations.create')" :current="request()->routeIs('invitations.*')">
+                                        {{ __('Invitations') }}
+                                    </x-navbar.nav-item>
+                                @endif
+                            @endauth
                         </div>
                     </div>
 
@@ -54,6 +61,13 @@
                                     <x-navbar.nav-item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" class="block w-full text-left" data-action="click->mobile-menu#close">
                                         {{ __('Dashboard') }}
                                     </x-navbar.nav-item>
+                                    @auth
+                                        @if(auth()->user()->isAdmin())
+                                            <x-navbar.nav-item icon="envelope" :href="route('invitations.create')" :current="request()->routeIs('invitations.*')" class="block w-full text-left" data-action="click->mobile-menu#close">
+                                                {{ __('Invitations') }}
+                                            </x-navbar.nav-item>
+                                        @endif
+                                    @endauth
                                 </div>
                             </div>
                         </div>

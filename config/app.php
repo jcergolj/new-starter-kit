@@ -68,7 +68,7 @@ return [
 
     'domain' => env('APP_DOMAIN', 'localhost'),
 
-    'single_user_mode' => env('SINGLE_USER_MODE', false),
+    'single_db_per_app' => env('SINGLE_DB_PER_APP', false),
 
     'allow_without_email_verification' => env('ALLOW_WITHOUT_EMAIL_VERIFICATION', false),
 

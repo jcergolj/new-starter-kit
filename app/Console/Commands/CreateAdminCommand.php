@@ -16,7 +16,7 @@ class CreateAdminCommand extends Command
 
     public function handle(): int
     {
-        if (! config('app.single_user_mode')) {
+        if (! config('app.single_db_per_app')) {
             $this->error('This command is only available in single user mode.');
 
             return self::FAILURE;

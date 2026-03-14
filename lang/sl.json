@@ -105,5 +105,20 @@
     "With two-factor authentication enabled, you will be prompted for a secure, random pin during login, which you can retrieve from the TOTP-supported application on your phone.": "Z omogočeno dvostopenjsko avtentikacijo boste pri prijavi pozvani k vnosu varnostne naključne kode, ki jo lahko dobite iz aplikacije s podporo TOTP na telefonu.",
     "Your email address is unverified.": "Vaš e-poštni naslov ni preverjen.",
     "Your profile has been updated.": "Vaš profil je bil posodobljen.",
-    "Your URL will be:": "Vaš URL bo:"
+    "Your URL will be:": "Vaš URL bo:",
+    "Accept invitation": "Sprejmi povabilo",
+    "Complete your registration below.": "Spodaj izpolnite registracijo.",
+    "Complete Registration": "Zaključi registracijo",
+    "Email": "E-pošta",
+    "Invitation accepted. You can now log in.": "Povabilo sprejeto. Zdaj se lahko prijavite.",
+    "Invitation revoked.": "Povabilo preklicano.",
+    "Invitation sent successfully.": "Povabilo uspešno poslano.",
+    "Invitations": "Povabila",
+    "Pending invitations": "Čakajoča povabila",
+    "Revoke": "Prekliči",
+    "Send invitation": "Pošlji povabilo",
+    "This invitation expires on :date.": "To povabilo poteče :date.",
+    "This invitation is no longer valid.": "To povabilo ni več veljavno.",
+    "You have been invited": "Prejeli ste povabilo",
+    "You have been invited to join. Click the link below to complete your registration:": "Prejeli ste povabilo. Kliknite spodnjo povezavo za dokončanje registracije:"
 }

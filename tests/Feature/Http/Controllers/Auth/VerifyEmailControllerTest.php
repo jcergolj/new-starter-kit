@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Feature\Auth;
+namespace Tests\Feature\Http\Controllers\Auth;
 
 use App\Models\User;
 use Illuminate\Auth\Events\Verified;
@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\URL;
 use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
-final class EmailVerificationTest extends TestCase
+final class VerifyEmailControllerTest extends TestCase
 {
     use RefreshDatabase;
 

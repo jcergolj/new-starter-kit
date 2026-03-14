@@ -12,7 +12,7 @@
         <div class="flex min-h-screen flex-col items-center justify-center px-2 py-12">
             <x-in-app-notifications::notification />
 
-            <div class="w-full max-w-lg px-4">
+            <div class="w-full max-w-xl px-4">
                 <div class="text-center mb-8">
                     <a href="{{ route('home') }}" class="inline-flex flex-col items-center group">
                         <div class="auth-logo-icon">

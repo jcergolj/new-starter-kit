@@ -26,6 +26,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return self::count() > 0;
     }
 
+    public function isAdmin(): bool
+    {
+        return User::orderBy('id')->first()->is($this);
+    }
+
     public function initials(): string
     {
         return Str::of($this->username)->substr(0, 2)->upper();

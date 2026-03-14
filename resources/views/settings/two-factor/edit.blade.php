@@ -1,7 +1,7 @@
 <x-layouts.app :title="__('Two-factor authentication')">
     <x-turbo::exempts-page-from-cache />
 
-    <section class="w-full lg:max-w-lg mx-auto">
+    <section class="w-full lg:max-w-xl mx-auto">
         @unlesshotwirenative
         <x-back-link :href="route('settings')">{{ __('Profile & Settings') }}</x-back-link>
         <x-text.heading size="xl">{{ __('Two-factor authentication') }}</x-text.heading>
