@@ -2,18 +2,15 @@
 
 namespace App\Providers;
 
-use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
-use App\Services\SubdomainUrlBuilder;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
-use Laravel\Fortify\Contracts\RegisterResponse as RegisterResponseContract;
 use Laravel\Fortify\Fortify;
 
 class FortifyServiceProvider extends ServiceProvider
@@ -28,31 +25,6 @@ class FortifyServiceProvider extends ServiceProvider
         $this->configureFotifyActions();
         $this->configureFortifyViews();
         $this->configureRateLimiting();
-        $this->configureRedirects();
-    }
-
-    private function configureRedirects(): void
-    {
-        $this->app->singleton(RegisterResponseContract::class, fn ($app) => new class($app->make(SubdomainUrlBuilder::class)) implements RegisterResponseContract
-        {
-            public function __construct(private readonly SubdomainUrlBuilder $urlBuilder) {}
-
-            public function toResponse($request)
-            {
-                $postRegisterUrl = config('app.allow_without_email_verification')
-                    ? '/dashboard'
-                    : '/login?status=verify-email';
-
-                if (config('app.single_db_per_app')) {
-                    return redirect()->to($postRegisterUrl);
-                }
-
-                $username = $request->input('username');
-                $loginUrl = $this->urlBuilder->build($username, $postRegisterUrl);
-
-                return redirect($loginUrl);
-            }
-        });
     }
 
     private function configureFortifyViews(): void
@@ -63,7 +35,6 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::verifyEmailView(fn () => view('auth.verify-email'));
         Fortify::resetPasswordView(fn () => view('auth.reset-password'));
         Fortify::requestPasswordResetLinkView(fn () => view('auth.forgot-password'));
-        Fortify::registerView(fn () => view('auth.register'));
     }
 
     private function configureRateLimiting(): void
@@ -79,7 +50,6 @@ class FortifyServiceProvider extends ServiceProvider
 
     private function configureFotifyActions(): void
     {
-        Fortify::createUsersUsing(CreateNewUser::class);
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);

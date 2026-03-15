@@ -40,12 +40,6 @@
                             <x-navbar.nav-item icon="arrow-right-end-on-rectangle" :href="route('login')" :current="false">
                                 {{ __('Log in') }}
                             </x-navbar.nav-item>
-
-                            @if (Route::has('register') && ! \App\Models\User::exists())
-                                <x-navbar.nav-item icon="user-plus" :href="route('register')" :current="false">
-                                    {{ __('Register') }}
-                                </x-navbar.nav-item>
-                            @endif
                         @endauth
                     </div>
                 </div>

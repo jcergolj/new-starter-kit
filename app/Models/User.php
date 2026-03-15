@@ -21,11 +21,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'remember_token',
     ];
 
-    public static function exists(): bool
-    {
-        return self::count() > 0;
-    }
-
     public function isAdmin(): bool
     {
         return (bool) $this->is_admin;

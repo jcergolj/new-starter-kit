@@ -30,10 +30,6 @@ final readonly class ConnectToUserDatabase
             return $next($request);
         }
 
-        if ($this->isRegistrationRoute($request)) {
-            return $next($request);
-        }
-
         if (! $this->tenantDb->databaseExists($subdomain)) {
             return response()->view('errors.subdomain-not-found', [
                 'subdomain' => $subdomain,
@@ -57,10 +53,5 @@ final readonly class ConnectToUserDatabase
         }
 
         return $next($request);
-    }
-
-    private function isRegistrationRoute(Request $request): bool
-    {
-        return $request->routeIs('register', 'register.store');
     }
 }

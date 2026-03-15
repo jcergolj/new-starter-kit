@@ -3,7 +3,7 @@
         <x-auth-header :title="__('Log in to your account')" :description="__('Enter your email and password below to log in')" />
 
         <!-- Session Status -->
-        <x-auth-session-status class="text-center" :status="session('status') ?? (request()->query('status') === 'verify-email' ? __('Registration successful! Please check your email to verify your address.') : '')" />
+        <x-auth-session-status class="text-center" :status="session('status')" />
 
         <form action="{{ route('login.store') }}" method="post" class="flex flex-col gap-6" data-turbo-action="replace">
             @csrf
@@ -40,12 +40,5 @@
                 <x-form.button.primary type="submit" class="w-full">{{ __('Log in') }}</x-form.button.primary>
             </div>
         </form>
-
-        @if (Route::has('register') && ! \App\Models\User::exists())
-            <div class="space-x-1 text-center text-sm text-base-600">
-                <span>{{ __('Don\'t have an account?') }}</span>
-                <x-link :href="route('register')">{{ __('Sign up') }}</x-link>
-            </div>
-        @endif
     </div>
 </x-layouts.auth>

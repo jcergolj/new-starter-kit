@@ -188,11 +188,4 @@ final class ConnectToUserDatabaseTest extends TestCase
             }
         }
     }
-
-    #[Test]
-    public function passes_through_for_registration_routes(): void
-    {
-        // Skip this test as route mocking is complex in middleware tests
-        $this->assertTrue(true);
-    }
 }

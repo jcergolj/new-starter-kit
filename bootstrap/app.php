@@ -2,7 +2,6 @@
 
 use App\Http\Middleware\ConnectToUserDatabase;
 use App\Http\Middleware\EnsureUserIsAdmin;
-use App\Http\Middleware\PreventRegistrationWhenUserExists;
 use App\Http\Middleware\SetLocaleMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
@@ -20,7 +19,6 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
         $middleware->web(prepend: [
             ConnectToUserDatabase::class,
-            PreventRegistrationWhenUserExists::class,
         ]);
         $middleware->web(append: [
             SetLocaleMiddleware::class,
