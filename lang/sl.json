@@ -120,5 +120,19 @@
     "This invitation expires on :date.": "To povabilo poteče :date.",
     "This invitation is no longer valid.": "To povabilo ni več veljavno.",
     "You have been invited": "Prejeli ste povabilo",
-    "You have been invited to join. Click the link below to complete your registration:": "Prejeli ste povabilo. Kliknite spodnjo povezavo za dokončanje registracije:"
+    "You have been invited to join. Click the link below to complete your registration:": "Prejeli ste povabilo. Kliknite spodnjo povezavo za dokončanje registracije:",
+    "Where should the user be added?": "Kam naj bo uporabnik dodan?",
+    "Current database": "Trenutna baza podatkov",
+    "New tenant database": "Nova baza podatkov najemnika",
+    "Existing tenant database": "Obstoječa baza podatkov najemnika",
+    "Subdomain": "Poddomena",
+    "User role?": "Vloga uporabnika?",
+    "User": "Uporabnik",
+    "Admin": "Skrbnik",
+    "How should the user be created?": "Kako naj bo uporabnik ustvarjen?",
+    "Send invitation": "Pošlji povabilo",
+    "Create directly": "Ustvari neposredno",
+    "Invalid subdomain format.": "Neveljaven format poddomene.",
+    "No existing tenant databases found.": "Ni najdenih obstoječih baz podatkov najemnikov.",
+    "User created successfully.": "Uporabnik uspešno ustvarjen."
 }

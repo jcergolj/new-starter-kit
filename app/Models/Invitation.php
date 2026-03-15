@@ -13,10 +13,11 @@ class Invitation extends Model
 
     protected $guarded = [];
 
-    public static function createFor(string $email): self
+    public static function createFor(string $email, bool $isAdmin = false): self
     {
         return self::create([
             'email' => $email,
+            'is_admin' => $isAdmin,
             'token' => bin2hex(random_bytes(32)),
             'expires_at' => now()->addDays(7),
         ]);
@@ -42,6 +43,7 @@ class Invitation extends Model
     protected function casts(): array
     {
         return [
+            'is_admin' => 'boolean',
             'accepted_at' => 'datetime',
             'expires_at' => 'datetime',
         ];

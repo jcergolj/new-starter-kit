@@ -120,5 +120,19 @@
     "This invitation expires on :date.": "This invitation expires on :date.",
     "This invitation is no longer valid.": "This invitation is no longer valid.",
     "You have been invited": "You have been invited",
-    "You have been invited to join. Click the link below to complete your registration:": "You have been invited to join. Click the link below to complete your registration:"
+    "You have been invited to join. Click the link below to complete your registration:": "You have been invited to join. Click the link below to complete your registration:",
+    "Where should the user be added?": "Where should the user be added?",
+    "Current database": "Current database",
+    "New tenant database": "New tenant database",
+    "Existing tenant database": "Existing tenant database",
+    "Subdomain": "Subdomain",
+    "User role?": "User role?",
+    "User": "User",
+    "Admin": "Admin",
+    "How should the user be created?": "How should the user be created?",
+    "Send invitation": "Send invitation",
+    "Create directly": "Create directly",
+    "Invalid subdomain format.": "Invalid subdomain format.",
+    "No existing tenant databases found.": "No existing tenant databases found.",
+    "User created successfully.": "User created successfully."
 }
