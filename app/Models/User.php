@@ -28,7 +28,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function isAdmin(): bool
     {
-        return User::orderBy('id')->first()->is($this);
+        return (bool) $this->is_admin;
     }
 
     public function initials(): string
@@ -49,6 +49,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_admin' => 'boolean',
         ];
     }
 }

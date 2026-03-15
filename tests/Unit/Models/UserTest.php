@@ -51,4 +51,20 @@ final class UserTest extends TestCase
         $this->assertInstanceOf(UserSettings::class, $user->settings);
         $this->assertSame('en', $user->settings->lang);
     }
+
+    #[Test]
+    public function is_admin_returns_true_when_is_admin_flag_is_set(): void
+    {
+        $user = User::factory()->admin()->create();
+
+        $this->assertTrue($user->isAdmin());
+    }
+
+    #[Test]
+    public function is_admin_returns_false_when_is_admin_flag_is_not_set(): void
+    {
+        $user = User::factory()->create();
+
+        $this->assertFalse($user->isAdmin());
+    }
 }

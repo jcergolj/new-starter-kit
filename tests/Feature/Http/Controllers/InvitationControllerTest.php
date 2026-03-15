@@ -25,7 +25,7 @@ final class InvitationControllerTest extends TestCase
     #[Test]
     public function create_has_auth_verified_and_admin_middleware(): void
     {
-        $admin = User::factory()->create();
+        $admin = User::factory()->admin()->create();
 
         $response = $this->actingAs($admin)->get(route('invitations.create'));
 
@@ -37,7 +37,8 @@ final class InvitationControllerTest extends TestCase
     #[Test]
     public function store_has_form_request(): void
     {
-        $admin = User::factory()->create();
+        $admin = User::factory()->admin()->create();
+
         $this->actingAs($admin)->post(route('invitations.store'));
 
         $this->assertContainsFormRequest(SendInvitationRequest::class);
@@ -46,7 +47,7 @@ final class InvitationControllerTest extends TestCase
     #[Test]
     public function admin_can_view_invite_form(): void
     {
-        $admin = User::factory()->create();
+        $admin = User::factory()->admin()->create();
 
         $response = $this->actingAs($admin)->get(route('invitations.create'));
 
@@ -56,7 +57,6 @@ final class InvitationControllerTest extends TestCase
     #[Test]
     public function non_admin_gets_403(): void
     {
-        User::factory()->create(); // admin
         $nonAdmin = User::factory()->create();
 
         $response = $this->actingAs($nonAdmin)->get(route('invitations.create'));
@@ -76,7 +76,7 @@ final class InvitationControllerTest extends TestCase
     public function admin_can_send_invite_email(): void
     {
         Mail::fake();
-        $admin = User::factory()->create();
+        $admin = User::factory()->admin()->create();
 
         $response = $this->actingAs($admin)->post(route('invitations.store'), [
             'email' => 'invite@example.com',
@@ -91,7 +91,7 @@ final class InvitationControllerTest extends TestCase
     #[Test]
     public function duplicate_pending_email_fails_validation(): void
     {
-        $admin = User::factory()->create();
+        $admin = User::factory()->admin()->create();
         Invitation::factory()->create(['email' => 'pending@example.com']);
 
         $response = $this->actingAs($admin)->post(route('invitations.store'), [
@@ -104,7 +104,7 @@ final class InvitationControllerTest extends TestCase
     #[Test]
     public function admin_can_revoke_pending_invitation(): void
     {
-        $admin = User::factory()->create();
+        $admin = User::factory()->admin()->create();
         $invitation = Invitation::factory()->create();
 
         $response = $this->actingAs($admin)->delete(route('invitations.destroy', $invitation));
@@ -116,7 +116,7 @@ final class InvitationControllerTest extends TestCase
     #[Test]
     public function revoked_invitation_is_deleted_from_db(): void
     {
-        $admin = User::factory()->create();
+        $admin = User::factory()->admin()->create();
         $invitation = Invitation::factory()->create();
 
         $this->actingAs($admin)->delete(route('invitations.destroy', $invitation));

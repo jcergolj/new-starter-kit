@@ -36,6 +36,7 @@ final class CreateAdminCommandTest extends TestCase
         $this->assertSame('admin', $user->username);
         $this->assertSame('admin@example.com', $user->email);
         $this->assertTrue(Hash::check('password', $user->password));
+        $this->assertTrue($user->is_admin);
     }
 
     #[Test]

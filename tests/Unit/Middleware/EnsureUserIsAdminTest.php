@@ -22,7 +22,7 @@ final class EnsureUserIsAdminTest extends TestCase
     #[Test]
     public function admin_passes_through(): void
     {
-        $admin = User::factory()->create();
+        $admin = User::factory()->admin()->create();
         $request = Request::create('/invitations/create');
         $request->setUserResolver(fn () => $admin);
 
@@ -41,9 +41,7 @@ final class EnsureUserIsAdminTest extends TestCase
     #[Test]
     public function non_admin_gets_403(): void
     {
-        User::factory()->create(); // admin
         $nonAdmin = User::factory()->create();
-
         $request = Request::create('/invitations/create');
         $request->setUserResolver(fn () => $nonAdmin);
 

@@ -46,6 +46,7 @@ final class CreateNewUserTest extends TestCase
         $this->assertSame('johndoe', $user->username);
         $this->assertSame('john@example.com', $user->email);
         $this->assertNotNull($user->password);
+        $this->assertTrue($user->is_admin);
     }
 
     #[Test]
